@@ -218,7 +218,6 @@ const getAllUsers = () =>
     data.users.map((user, index) => getUserById(index + 1));
 
 const db = {
-
     getAllBooks,
     getAllAuthors,
     getAllUsers
