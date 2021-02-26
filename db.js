@@ -210,6 +210,11 @@ const data = {
 //id = index + 1
 
 
+const getUserById = (id) => ({
+    ...data.users[id - 1],
+    id
+});
+
 const getAllBooks = () =>
     data.books.map((book, index) => getBookById(index + 1));
 const getAllAuthors = () =>
