@@ -205,17 +205,30 @@ const data = {
             color: "blue"
           }
         }
-      ]
+      ],
+      bookIdsByAuthorIds: {
+          1: [1, 2, 3, 4, 5, 6, 7],
+          2: [8, 9, 10, 11, 12, 13, 14, 15],
+          3: [16, 17, 18, 19, 20]
+      }
 };
 //id = index + 1
 
+const getAuthorIdByBookId = bookId =>
+    parseInt(
+        Object.entries(data.bookIdsByAuthorIds).find(([authorId, bookIds]) =>
+        bookIds.includes(bookId))[0]
+    );
+
 const getBookById = (id) => ({
     ...data.books[id - 1],
-    id
+    id,
+    author: getAuthorById()
 });
 const getAuthorById = (id) => ({
     ...data.authors[id - 1],
-    id
+    id,
+    bookIds: data.bookIdsByAuthorIds[id]
 });
 const getUserById = (id) => ({
     ...data.users[id - 1],
@@ -230,6 +243,9 @@ const getAllUsers = () =>
     data.users.map((user, index) => getUserById(index + 1));
 
 const db = {
+    getBookById,
+    getAuthorById,
+    getUserById,
     getAllBooks,
     getAllAuthors,
     getAllUsers
