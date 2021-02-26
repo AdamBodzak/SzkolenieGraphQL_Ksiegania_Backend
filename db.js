@@ -209,7 +209,10 @@ const data = {
 };
 //id = index + 1
 
-
+const getBookById = (id) => ({
+    ...data.books[id - 1],
+    id
+});
 const getAuthorById = (id) => ({
     ...data.authors[id - 1],
     id
