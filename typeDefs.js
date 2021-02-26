@@ -12,10 +12,12 @@ const typeDefs = gql`
     type Book {
         title: String!
         cover: Image!
+        author: Author!
     }
     type Author {
         name: String!
         photo: Image!
+        books: [Book!]!
     }
     type User {
         name: String!
@@ -28,6 +30,9 @@ const typeDefs = gql`
     }
     type Image {
         image: Url!
+    }
+    type Url {
+        url: String!
     }
 `;
 
