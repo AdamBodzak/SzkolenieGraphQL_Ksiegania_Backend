@@ -210,6 +210,10 @@ const data = {
 //id = index + 1
 
 
+const getAuthorById = (id) => ({
+    ...data.authors[id - 1],
+    id
+});
 const getUserById = (id) => ({
     ...data.users[id - 1],
     id
