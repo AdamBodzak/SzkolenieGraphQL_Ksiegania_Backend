@@ -207,10 +207,14 @@ const data = {
         }
       ]
 };
+//id = index + 1
 
+const getAllUsers = () =>
+    data.users.map((user, index) => getUserById(index + 1));
 
 const db = {
 
+    getAllUsers
 };
 
 module.exports = db;
