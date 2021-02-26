@@ -1,8 +1,20 @@
 const { ApolloServer } = require("apollo-server");
-const typeDefs = require("./typeDefs");
 const rootValue = require("./rootValue");
-const PORT = process.env.PORT || 4000;
+const typeDefs = require("./typeDefs");
+const resolvers = require("./resolvers");
 
-const server = new ApolloServer({ typeDefs, rootValue, playground: true, introspection: true });
+const PORT = process.env.PORT || 4000;
+const BASE_ASSETS_URL = process.env.BASE_ASSETS_URL || "http://examples.com/assets";
+
+const server = new ApolloServer({
+  typeDefs,
+  rootValue,
+  resolvers,
+  context: {
+    baseAssetsUrl: BASE_ASSETS_URL
+  },
+  introspection: true,
+  playground: true
+});
 
 server.listen({ port: PORT }).then((result) => console.log(result.url));
