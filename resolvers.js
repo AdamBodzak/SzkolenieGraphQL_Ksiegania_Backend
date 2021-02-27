@@ -5,7 +5,7 @@ const resolvers = {
         users: (rootValue, args, { db }) => db.getAllUsers()
       },
     Book: {
-        title: (book) => parent.title.toUpperCase(),
+        title: (book) => book.title.toUpperCase(),
         author: (book, args, { db }) => db.getAuthorById(book.authorId),
         cover: book => ({
             path: book.coverPath
