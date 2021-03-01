@@ -4,7 +4,7 @@ const resolvers = require("./resolvers");
 const db = require('./db');
 
 const PORT = process.env.PORT || 4000;
-const BASE_ASSETS_URL = process.env.BASE_ASSETS_URL || "http://examples.com/assets";
+const BASE_ASSETS_URL = process.env.BASE_ASSETS_URL || "https://vast-ocean-54671.herokuapp.com";
 
 const server = new ApolloServer({
   typeDefs,
