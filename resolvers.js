@@ -3,7 +3,9 @@ const resolvers = {
         books: (rootValue, args, { db }) => db.getAllBooks(),
         authors: (rootValue, args, { db }) => db.getAllAuthors(),
         users: (rootValue, args, { db }) => db.getAllUsers(),
-        book: (rootValue, { id }, { db }) => db.getBookById(id)
+        author: (rootValue, { id }, { db }) => db.getAuthorById(id),
+        book: (rootValue, { id }, { db }) => db.getBookById(id),
+        user: (rootValue, { id }, { db }) => db.getUserById(id)
       },
     Book: {
         title: (book) => book.title.toUpperCase(),

@@ -7,7 +7,9 @@ const typeDefs = gql`
     authors: [Author!]!
     books: [Book!]!
     users: [User!]!
+    author(id: Int!): Author
     book(id: Int!): Book
+    user(id: Int!): User
   }
   type Author {
     name: String!
